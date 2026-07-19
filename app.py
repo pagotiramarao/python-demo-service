@@ -1,11 +1,6 @@
-from flask import Flask
+def add(a, b):
+    return a + b
 
-app = Flask(__name__)
 
-@app.route("/")
-def home():
-    return "Retail Platform V2"
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
-
+def subtract(a, b):
+    return a - b
