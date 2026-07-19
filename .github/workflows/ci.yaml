@@ -1,18 +1,24 @@
-name: CI
+name: Python CI
 
 on:
   push:
+    branches:
+      - main
+      - master
+
   pull_request:
 
 jobs:
-  unit-test:
+  test:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Install Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -21,6 +27,5 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run Tests
-        run: |
-          pytest
+      - name: Run Unit Tests
+        run: pytest
